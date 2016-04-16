@@ -1,4 +1,4 @@
-package com.valmaraz.mvp.view;
+package com.valmaraz.mvp.view.holder;
 
 import android.support.v7.widget.RecyclerView;
 import android.widget.TextView;

@@ -1,5 +1,6 @@
-package com.valmaraz.mvp.view;
+package com.valmaraz.mvp.view.adapter;
 
+import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -7,7 +8,10 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.valmaraz.mvp.R;
+import com.valmaraz.mvp.model.entity.City;
+import com.valmaraz.mvp.view.holder.MainHolder;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -16,10 +20,10 @@ import java.util.List;
  */
 public class MainAdapter extends RecyclerView.Adapter<MainHolder> {
 
-    private List<String> data;
+    private List<City> data;
 
-    public MainAdapter(List<String> data) {
-        this.data = data;
+    public MainAdapter() {
+        data = new ArrayList<>();
     }
 
     @Override
@@ -33,11 +37,22 @@ public class MainAdapter extends RecyclerView.Adapter<MainHolder> {
 
     @Override
     public void onBindViewHolder(MainHolder holder, int position) {
-        holder.mTextView.setText(data.get(position));
+        City city = data.get(position);
+        holder.mTextView.setText(city.name + " " + city.main.temp + "C");
     }
 
     @Override
     public int getItemCount() {
-        return data.size();
+        return data == null ? 0 : data.size();
+    }
+
+    @Override
+    public long getItemId(int position) {
+        return position;
+    }
+
+    public void setData(@NonNull List<City> data) {
+        this.data = data;
+        notifyDataSetChanged();
     }
 }
