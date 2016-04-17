@@ -12,7 +12,7 @@ public class Client {
     protected Network network;
 
     public Client() {
-        network = new Network(Config.API_URL);
+        network = new Network(Config.API_BASE_URL);
     }
 
     protected String appendDefaultQueryString(String url) {

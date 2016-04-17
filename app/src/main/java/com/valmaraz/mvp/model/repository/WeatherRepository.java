@@ -2,6 +2,7 @@ package com.valmaraz.mvp.model.repository;
 
 import android.support.annotation.NonNull;
 
+import com.valmaraz.mvp.Config;
 import com.valmaraz.mvp.model.entity.City;
 
 import java.util.List;
@@ -23,13 +24,18 @@ public class WeatherRepository {
             throw new RuntimeException("WeatherListListener cannot be null");
         }
 
-        int idSalamanca = 3111108;
+        int idBarcelona = 3128760;
         int idMadrid = 3117735;
+        int idSalamanca = 3111108;
         int idValencia = 2509954;
         int idValladolid = 3106672;
-        int idBarcelona = 3128760;
-        int[] cityIds = new int[]{idSalamanca, idMadrid, idValencia, idValladolid, idBarcelona};
+        int[] cityIds = new int[]{idBarcelona, idMadrid, idSalamanca, idValencia, idValladolid};
         client.getList(cityIds, callback);
+    }
+
+    // TODO: find a better place for this method (business object)
+    public static String getIconUrlForId(String iconId) {
+        return Config.API_URL + "/img/w/" + iconId;
     }
 
     public interface WeatherListListener extends RepositoryListener {
