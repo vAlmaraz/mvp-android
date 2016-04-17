@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">MVP</string>
+
+    <string name="description_weather">Weather</string>
+    <string name="temperature">%1$sºC</string>
 </resources>
