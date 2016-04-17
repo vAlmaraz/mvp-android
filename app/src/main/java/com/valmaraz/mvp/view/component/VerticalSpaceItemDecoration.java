@@ -1,4 +1,4 @@
-package com.valmaraz.mvp.view;
+package com.valmaraz.mvp.view.component;
 
 import android.graphics.Rect;
 import android.support.v7.widget.RecyclerView;

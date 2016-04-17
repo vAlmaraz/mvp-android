@@ -9,7 +9,7 @@ import android.widget.TextView;
 import com.valmaraz.mvp.R;
 import com.valmaraz.mvp.model.entity.City;
 import com.valmaraz.mvp.model.repository.WeatherRepository;
-import com.valmaraz.mvp.view.ImageLoader;
+import com.valmaraz.mvp.view.component.ImageLoader;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;

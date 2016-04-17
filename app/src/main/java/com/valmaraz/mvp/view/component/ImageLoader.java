@@ -1,4 +1,4 @@
-package com.valmaraz.mvp.view;
+package com.valmaraz.mvp.view.component;
 
 import android.content.Context;
 import android.widget.ImageView;

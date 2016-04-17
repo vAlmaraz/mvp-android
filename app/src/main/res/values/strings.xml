@@ -3,4 +3,5 @@
 
     <string name="description_weather">Weather</string>
     <string name="temperature">%1$sºC</string>
+    <string name="retry">Retry</string>
 </resources>

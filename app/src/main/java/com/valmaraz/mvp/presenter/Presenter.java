@@ -5,4 +5,9 @@ package com.valmaraz.mvp.presenter;
  * http://www.valmaraz.com
  */
 public interface Presenter {
+
+    void resume();
+    void pause();
+    void stop();
+    void destroy();
 }

@@ -20,17 +20,50 @@ public class MainPresenter implements Presenter, WeatherRepository.WeatherListLi
         this.weatherRepository = new WeatherRepository();
     }
 
-    public void loadWeatherList() {
-        weatherRepository.getList(this);
+    // =============================================================================
+    // LIFE CYCLE
+    // =============================================================================
+
+    @Override
+    public void resume() {
     }
 
     @Override
+    public void pause() {
+    }
+
+    @Override
+    public void stop() {
+    }
+
+    @Override
+    public void destroy() {
+    }
+
+    // =============================================================================
+    // MODEL CALLBACK
+    // =============================================================================
+
+    @Override
     public void onWeatherListReceived(List<City> cities) {
+        view.hideLoading();
         view.renderWeatherList(cities);
     }
 
     @Override
     public void onFailure(String message) {
+        view.hideLoading();
+        view.showRetry();
         view.showTemporaryMessage(message);
+    }
+
+    // =============================================================================
+    // PUBLIC METHODS
+    // =============================================================================
+
+    public void initialize() {
+        view.showLoading();
+        view.hideRetry();
+        weatherRepository.getList(this);
     }
 }

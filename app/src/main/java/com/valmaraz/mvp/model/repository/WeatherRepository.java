@@ -35,7 +35,7 @@ public class WeatherRepository {
 
     // TODO: find a better place for this method (business object)
     public static String getIconUrlForId(String iconId) {
-        return Config.API_URL + "/img/w/" + iconId;
+        return Config.getInstance().apiUrl + "/img/w/" + iconId;
     }
 
     public interface WeatherListListener extends RepositoryListener {

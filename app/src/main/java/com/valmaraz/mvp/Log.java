@@ -6,34 +6,32 @@ package com.valmaraz.mvp;
  */
 public class Log {
 
-    public static final boolean SHOW_LOG = true;
-
     public static void i(String tag, String string) {
-        if (SHOW_LOG) {
+        if (Config.getInstance().showLog) {
             android.util.Log.i(tag, string);
         }
     }
 
     public static void e(String tag, String string) {
-        if (SHOW_LOG) {
+        if (Config.getInstance().showLog) {
             android.util.Log.e(tag, string);
         }
     }
 
     public static void d(String tag, String string) {
-        if (SHOW_LOG) {
+        if (Config.getInstance().showLog) {
             android.util.Log.d(tag, string);
         }
     }
 
     public static void v(String tag, String string) {
-        if (SHOW_LOG) {
+        if (Config.getInstance().showLog) {
             android.util.Log.v(tag, string);
         }
     }
 
     public static void w(String tag, String string) {
-        if (SHOW_LOG) {
+        if (Config.getInstance().showLog) {
             android.util.Log.w(tag, string);
         }
     }

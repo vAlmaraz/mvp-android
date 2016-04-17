@@ -1,9 +1,8 @@
 package com.valmaraz.mvp.model.network;
 
 
+import com.valmaraz.mvp.Config;
 import com.valmaraz.mvp.Log;
-
-import java.io.IOException;
 
 import okhttp3.OkHttpClient;
 import okhttp3.ResponseBody;
@@ -24,7 +23,7 @@ public class Network {
 
     public Network(String baseUrl) {
         HttpLoggingInterceptor interceptor = new HttpLoggingInterceptor();
-        interceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
+        interceptor.setLevel(Config.getInstance().logRequests ? HttpLoggingInterceptor.Level.BODY : HttpLoggingInterceptor.Level.NONE);
         OkHttpClient client = new OkHttpClient.Builder().addInterceptor(interceptor).build();
 
         Retrofit retrofit = new Retrofit.Builder()

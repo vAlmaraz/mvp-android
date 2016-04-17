@@ -12,10 +12,10 @@ public class Client {
     protected Network network;
 
     public Client() {
-        network = new Network(Config.API_BASE_URL);
+        network = new Network(Config.getInstance().apiBaseUrl);
     }
 
     protected String appendDefaultQueryString(String url) {
-        return url + "&appid=" + Config.API_KEY + "&units=metric";
+        return url + "&appid=" + Config.getInstance().apiKey + "&units=metric";
     }
 }

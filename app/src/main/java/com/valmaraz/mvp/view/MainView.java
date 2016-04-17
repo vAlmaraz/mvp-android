@@ -8,6 +8,6 @@ import java.util.List;
  * Created by Víctor Almaraz on 16/04/2016.
  * http://www.valmaraz.com
  */
-public interface MainView extends BaseView {
+public interface MainView extends LoadingView {
     void renderWeatherList(List<City> weatherCities);
 }

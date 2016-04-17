@@ -5,5 +5,7 @@ package com.valmaraz.mvp.view;
  * http://www.valmaraz.com
  */
 public interface BaseView {
+    void showRetry();
+    void hideRetry();
     void showTemporaryMessage(String message);
 }

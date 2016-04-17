@@ -4,13 +4,8 @@ import android.support.annotation.NonNull;
 import android.text.TextUtils;
 
 import com.google.gson.Gson;
-import com.valmaraz.mvp.model.entity.City;
 import com.valmaraz.mvp.model.entity.Group;
-import com.valmaraz.mvp.model.network.Network;
 import com.valmaraz.mvp.model.network.NetworkCallback;
-
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Created by Víctor Almaraz on 16/04/2016.
@@ -49,7 +44,7 @@ public class WeatherClient extends Client {
                     Error error = new Gson().fromJson(body, Error.class);
                     message = error.getMessage();
                 }
-                callback.onFailure(body);
+                callback.onFailure(message);
             }
         };
 

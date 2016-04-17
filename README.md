@@ -19,7 +19,7 @@ Example: [MainAdapter](app/src/main/java/com/valmaraz/mvp/view/adapter/MainAdapt
 ### Wrap components
 
 It will help you to globally set options and change each implementation (and also change library if needed).
-Example: [Picasso](app/src/main/java/com/valmaraz/mvp/view/ImageLoader.java) and [Toast/Snackbar](app/src/main/java/com/valmaraz/mvp/view/UIMessage.java). ImageLoader will download a image and set it into a ImageView. It is currently implemented by Picasso library, but it could be easily changed to Fresco, Glide or any other third party library (or your own implementation). UIMessage will show a temporal message in screen. It is currently implemented by Toast but can be replaced by Snackbar if needed.
+Example: [Picasso](app/src/main/java/com/valmaraz/mvp/view/component/ImageLoader.java) and [Toast/Snackbar](app/src/main/java/com/valmaraz/mvp/view/component/UIMessage.java). ImageLoader will download a image and set it into a ImageView. It is currently implemented by Picasso library, but it could be easily changed to Fresco, Glide or any other third party library (or your own implementation). UIMessage will show a temporal message in screen. It is currently implemented by Toast but can be replaced by Snackbar if needed.
 
 ### Group listeners when possible
 
