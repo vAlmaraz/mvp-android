@@ -3,7 +3,7 @@
 The project is a basic example about MVP for Android.
 This README will explain as a tutorial how to achieve my personal MVP implementation.
 
-It is based on [Konstantin Mikheev](https://github.com/konmik/konmik.github.io/wiki/Introduction-to-Model-View-Presenter-on-Android) and [Fernando Cejas](https://github.com/android10/Android-CleanArchitecture) examples. It also follows my own [code style guide](https://github.com/vAlmaraz/code-style).
+It is based on [Konstantin Mikheev](https://github.com/konmik/konmik.github.io/wiki/Introduction-to-Model-View-Presenter-on-Android) and presentation layer of Clean Architecture example by [Fernando Cejas](https://github.com/android10/Android-CleanArchitecture) examples. It also follows my own [code style guide](https://github.com/vAlmaraz/code-style).
 
 
 ## First steps: avoiding massive Activities/Fragments
