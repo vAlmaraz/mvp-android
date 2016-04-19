@@ -2,7 +2,7 @@ package com.valmaraz.mvp.model.repository;
 
 import android.support.annotation.NonNull;
 
-import com.valmaraz.mvp.Config;
+import com.valmaraz.mvp.Environment;
 import com.valmaraz.mvp.model.entity.City;
 
 import java.util.List;
@@ -35,7 +35,7 @@ public class WeatherRepository {
 
     // TODO: find a better place for this method (business object)
     public static String getIconUrlForId(String iconId) {
-        return Config.getInstance().apiUrl + "/img/w/" + iconId;
+        return Environment.apiUrl + "/img/w/" + iconId;
     }
 
     public interface WeatherListListener extends RepositoryListener {

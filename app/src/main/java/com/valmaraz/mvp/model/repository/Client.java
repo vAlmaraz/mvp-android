@@ -1,6 +1,6 @@
 package com.valmaraz.mvp.model.repository;
 
-import com.valmaraz.mvp.Config;
+import com.valmaraz.mvp.Environment;
 import com.valmaraz.mvp.model.network.Network;
 
 /**
@@ -12,10 +12,10 @@ public class Client {
     protected Network network;
 
     public Client() {
-        network = new Network(Config.getInstance().apiBaseUrl);
+        network = new Network(Environment.apiBaseUrl);
     }
 
     protected String appendDefaultQueryString(String url) {
-        return url + "&appid=" + Config.getInstance().apiKey + "&units=metric";
+        return url + "&appid=" + Environment.apiKey + "&units=metric";
     }
 }
