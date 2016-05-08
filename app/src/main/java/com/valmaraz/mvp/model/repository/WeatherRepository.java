@@ -20,10 +20,6 @@ public class WeatherRepository {
     }
 
     public void getList(@NonNull WeatherListListener callback) {
-        if (callback == null) {
-            throw new RuntimeException("WeatherListListener cannot be null");
-        }
-
         int idBarcelona = 3128760;
         int idMadrid = 3117735;
         int idSalamanca = 3111108;
@@ -33,6 +29,10 @@ public class WeatherRepository {
         client.getList(cityIds, callback);
     }
 
+    public void getDetails(@NonNull City city, @NonNull WeatherDetailsListener callback) {
+        client.getDetails(city, callback);
+    }
+
     // TODO: find a better place for this method (business object)
     public static String getIconUrlForId(String iconId) {
         return Environment.apiUrl + "/img/w/" + iconId;
@@ -40,5 +40,9 @@ public class WeatherRepository {
 
     public interface WeatherListListener extends RepositoryListener {
         void onWeatherListReceived(List<City> cities);
+    }
+
+    public interface WeatherDetailsListener extends RepositoryListener {
+        void onWeatherDetailsReceived(City city);
     }
 }

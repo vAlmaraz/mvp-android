@@ -2,7 +2,7 @@ package com.valmaraz.mvp.presenter;
 
 import com.valmaraz.mvp.model.entity.City;
 import com.valmaraz.mvp.model.repository.WeatherRepository;
-import com.valmaraz.mvp.view.MainView;
+import com.valmaraz.mvp.view.WeatherListView;
 
 import java.util.List;
 
@@ -10,34 +10,31 @@ import java.util.List;
  * Created by Victor on 13/04/2016.
  * http://www.valmaraz.com
  */
-public class MainPresenter implements Presenter, WeatherRepository.WeatherListListener {
+public class WeatherListPresenter implements Presenter, WeatherRepository.WeatherListListener {
 
-    private MainView view;
+    private WeatherListView view;
     private WeatherRepository weatherRepository;
 
-    public MainPresenter(MainView view) {
+    public WeatherListPresenter(WeatherListView view) {
         this.view = view;
         this.weatherRepository = new WeatherRepository();
     }
 
     // =============================================================================
-    // LIFE CYCLE
+    // PRESENTER
     // =============================================================================
 
     @Override
-    public void resume() {
-    }
-
-    @Override
-    public void pause() {
-    }
-
-    @Override
-    public void stop() {
+    public void initialize() {
+        view.showLoading();
+        view.hideRetry();
+        weatherRepository.getList(this);
     }
 
     @Override
     public void destroy() {
+        view = null;
+        weatherRepository = null;
     }
 
     // =============================================================================
@@ -55,15 +52,5 @@ public class MainPresenter implements Presenter, WeatherRepository.WeatherListLi
         view.hideLoading();
         view.showRetry();
         view.showTemporaryMessage(message);
-    }
-
-    // =============================================================================
-    // PUBLIC METHODS
-    // =============================================================================
-
-    public void initialize() {
-        view.showLoading();
-        view.hideRetry();
-        weatherRepository.getList(this);
     }
 }

@@ -6,8 +6,6 @@ package com.valmaraz.mvp.presenter;
  */
 public interface Presenter {
 
-    void resume();
-    void pause();
-    void stop();
+    void initialize();
     void destroy();
 }

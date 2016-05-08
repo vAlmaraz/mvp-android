@@ -11,11 +11,12 @@ import android.widget.ProgressBar;
 
 import com.valmaraz.mvp.R;
 import com.valmaraz.mvp.model.entity.City;
-import com.valmaraz.mvp.presenter.MainPresenter;
-import com.valmaraz.mvp.view.MainView;
+import com.valmaraz.mvp.presenter.WeatherListPresenter;
+import com.valmaraz.mvp.view.WeatherListView;
 import com.valmaraz.mvp.view.adapter.MainAdapter;
 import com.valmaraz.mvp.view.component.SimpleDividerItemDecoration;
 import com.valmaraz.mvp.view.component.UIMessage;
+import com.valmaraz.mvp.view.listener.OnRecyclerViewClickListener;
 
 import java.util.List;
 
@@ -23,24 +24,28 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class MainActivity extends BaseActivity implements MainView {
+/**
+ * Created by Victor on 13/04/2016.
+ * http://www.valmaraz.com
+ */
+public class WeatherListActivity extends BaseActivity implements WeatherListView, OnRecyclerViewClickListener {
 
-    @Bind(R.id.main_cl)
+    @Bind(R.id.act_weatherlist_cl)
     CoordinatorLayout coordinatorLayout;
-    @Bind(R.id.main_pb)
+    @Bind(R.id.act_weatherlist_pb)
     ProgressBar progressBar;
-    @Bind(R.id.main_bt_retry)
+    @Bind(R.id.act_weatherlist_bt_retry)
     Button btRetry;
-    @Bind(R.id.main_rv)
+    @Bind(R.id.act_weatherlist_rv)
     RecyclerView recyclerView;
 
-    private MainPresenter presenter;
+    private WeatherListPresenter presenter;
     private MainAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_weatherlist);
         ButterKnife.bind(this);
 
         recyclerView.setHasFixedSize(true);
@@ -48,15 +53,30 @@ public class MainActivity extends BaseActivity implements MainView {
         recyclerView.setLayoutManager(layoutManager);
 
         recyclerView.addItemDecoration(new SimpleDividerItemDecoration(ContextCompat.getDrawable(this, R.drawable.line_divider)));
-        adapter = new MainAdapter(getApplicationContext());
+        adapter = new MainAdapter(getApplicationContext(), this);
         recyclerView.setAdapter(adapter);
 
         if (presenter == null) {
-            presenter = new MainPresenter(this);
+            presenter = new WeatherListPresenter(this);
         }
 
         presenter.initialize();
     }
+
+    @OnClick(R.id.act_weatherlist_bt_retry)
+    public void onClick(View v) {
+        presenter.initialize();
+    }
+
+    @Override
+    public void onRecyclerViewClick(Object clickedObject) {
+        City city = (City) clickedObject;
+        navigator.navigateToWeatherDetails(this, city);
+    }
+
+    // =============================================================================
+    // VIEW IMPLEMENTATION
+    // =============================================================================
 
     @Override
     public void showLoading() {
@@ -90,10 +110,5 @@ public class MainActivity extends BaseActivity implements MainView {
         if (cities != null) {
             adapter.setData(cities);
         }
-    }
-
-    @OnClick(R.id.main_bt_retry)
-    public void onClick(View v) {
-        presenter.initialize();
     }
 }

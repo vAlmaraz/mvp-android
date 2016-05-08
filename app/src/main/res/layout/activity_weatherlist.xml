@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main_cl"
+    android:id="@+id/act_weatherlist_cl"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.activity.MainActivity">
+    tools:context=".view.activity.WeatherListActivity">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
         <ProgressBar
-            android:id="@+id/main_pb"
+            android:id="@+id/act_weatherlist_pb"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
@@ -19,7 +19,7 @@
             android:visibility="gone" />
 
         <Button
-            android:id="@+id/main_bt_retry"
+            android:id="@+id/act_weatherlist_bt_retry"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
@@ -27,7 +27,7 @@
             android:visibility="gone" />
 
         <android.support.v7.widget.RecyclerView
-            android:id="@+id/main_rv"
+            android:id="@+id/act_weatherlist_rv"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
     </RelativeLayout>

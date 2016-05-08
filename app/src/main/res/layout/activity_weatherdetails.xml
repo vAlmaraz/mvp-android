@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/act_weatherdetails_container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin">
+
+    <ImageView
+        android:id="@+id/act_weatherdetails_iv_weather"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:contentDescription="@string/description_weather"
+        android:scaleType="centerCrop"
+        tools:src="@mipmap/ic_launcher" />
+
+    <TextView
+        android:id="@+id/act_weatherdetails_tv_city"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:orientation="vertical"
+        tools:text="City name" />
+
+    <TextView
+        android:id="@+id/act_weatherdetails_tv_temp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:orientation="vertical"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        tools:text="25ºC" />
+
+    <TextView
+        android:id="@+id/act_weatherdetails_tv_pressure"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:orientation="vertical"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        tools:text="Pressure" />
+
+    <TextView
+        android:id="@+id/act_weatherdetails_tv_humidity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:orientation="vertical"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        tools:text="Humidity" />
+
+    <TextView
+        android:id="@+id/act_weatherdetails_tv_wind"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:orientation="vertical"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        tools:text="Wind" />
+
+</LinearLayout>

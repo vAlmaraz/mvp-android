@@ -60,7 +60,7 @@ public class Network {
     private String getBodyFromResponse(retrofit2.Response<ResponseBody> response) {
         String body = "";
         try {
-            if (response != null) {
+            if (response != null && response.body() != null) {
                 body = response.body().string();
             }
         } catch (Exception e) {

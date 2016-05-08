@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/item_main_container"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="horizontal"
@@ -10,7 +11,7 @@
     android:paddingTop="@dimen/activity_vertical_margin">
 
     <ImageView
-        android:id="@+id/item_main_iv_weather"
+        android:id="@+id/item_city_iv_weather"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:contentDescription="@string/description_weather"
@@ -18,21 +19,23 @@
         tools:src="@mipmap/ic_launcher" />
 
     <TextView
-        android:id="@+id/item_main_tv_city"
+        android:id="@+id/item_city_tv_city"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical"
         android:layout_marginLeft="@dimen/activity_horizontal_margin"
+        android:layout_marginStart="@dimen/activity_horizontal_margin"
         android:orientation="vertical"
         tools:text="City name" />
 
     <TextView
-        android:id="@+id/item_main_tv_temp"
+        android:id="@+id/item_city_tv_temp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical"
         android:layout_marginLeft="@dimen/activity_horizontal_margin"
-        android:gravity="right"
+        android:layout_marginStart="@dimen/activity_horizontal_margin"
+        android:gravity="end"
         android:orientation="vertical"
         android:textSize="20sp"
         android:textStyle="bold"

@@ -2,10 +2,11 @@ package com.valmaraz.mvp;
 
 /**
  * Created by Victor on 19/04/2016.
+ * http://www.valmaraz.com
  */
 public class Environment {
 
-    public static Type type = Type.PREPRODUCTION;
+    public static Type type = Type.DEVELOP;
 
     // Default values (PRODUCTION)
     public static boolean showLog = false;
@@ -14,7 +15,7 @@ public class Environment {
     public static String apiBaseUrl = "http://api.openweathermap.org/data/2.5/";
     public static String apiKey = "dc6ac0462871834b4e77f8b3e5f98d63";
 
-    public static void configureForType(Type type) {
+    public static void configure() {
         switch (type) {
             case DEVELOP:
                 showLog = true;

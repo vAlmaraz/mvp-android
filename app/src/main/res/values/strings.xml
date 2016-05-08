@@ -2,6 +2,9 @@
     <string name="app_name">MVP</string>
 
     <string name="description_weather">Weather</string>
-    <string name="temperature">%1$sºC</string>
     <string name="retry">Retry</string>
+    <string name="temperature_value">%1$sºC</string>
+    <string name="pressure_value">Pressure: %1$s</string>
+    <string name="humidity_value">Humidity: %1$s</string>
+    <string name="wind_value">Wind: %1$s</string>
 </resources>
