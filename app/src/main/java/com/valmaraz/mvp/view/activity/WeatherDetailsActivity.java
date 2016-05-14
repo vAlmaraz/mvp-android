@@ -1,5 +1,6 @@
 package com.valmaraz.mvp.view.activity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -35,6 +36,8 @@ public class WeatherDetailsActivity extends BaseActivity implements WeatherDetai
     TextView tvTemp;
     @Bind(R.id.act_weatherdetails_tv_sky)
     TextView tvSky;
+    @Bind(R.id.act_weatherdetails_container_temps)
+    View containerTemps;
     @Bind(R.id.act_weatherdetails_tv_temp_max)
     TextView tvTempMax;
     @Bind(R.id.act_weatherdetails_tv_temp_min)
@@ -63,6 +66,15 @@ public class WeatherDetailsActivity extends BaseActivity implements WeatherDetai
         City city = new Gson().fromJson(getIntent().getStringExtra(EXTRA_CITY), City.class);
         weatherDetailsPresenter = new WeatherDetailsPresenter(this, city);
         weatherDetailsPresenter.initialize();
+    }
+
+    // =============================================================================
+    // VIEW IMPLEMENTATION
+    // =============================================================================
+
+    @Override
+    public Context getContext() {
+        return getApplicationContext();
     }
 
     @Override
@@ -101,6 +113,10 @@ public class WeatherDetailsActivity extends BaseActivity implements WeatherDetai
         showCompleteData(city);
     }
 
+    // =============================================================================
+    // PRIVATE METHODS
+    // =============================================================================
+
     private void showBasicData(City city) {
         String image = "";
         if (!city.weatherList.isEmpty()) {
@@ -113,6 +129,7 @@ public class WeatherDetailsActivity extends BaseActivity implements WeatherDetai
     private void showCompleteData(City city) {
         showBasicData(city);
         tvSky.setText(city.weatherList.get(0).main);
+        containerTemps.setVisibility(View.VISIBLE);
         tvTempMax.setText(getString(R.string.temperature_value, city.main.temp_max));
         tvTempMin.setText(getString(R.string.temperature_value, city.main.temp_min));
         tvPressure.setText(getString(R.string.pressure_value, city.main.pressure));

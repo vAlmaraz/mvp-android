@@ -17,7 +17,7 @@ public class WeatherListPresenter implements Presenter, WeatherRepository.Weathe
 
     public WeatherListPresenter(WeatherListView view) {
         this.view = view;
-        this.weatherRepository = new WeatherRepository();
+        this.weatherRepository = new WeatherRepository(view.getContext());
     }
 
     // =============================================================================

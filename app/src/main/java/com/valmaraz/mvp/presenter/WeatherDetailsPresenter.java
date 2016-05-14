@@ -17,7 +17,7 @@ public class WeatherDetailsPresenter implements Presenter, WeatherRepository.Wea
     public WeatherDetailsPresenter(WeatherDetailsView view, City city) {
         this.view = view;
         this.city = city;
-        weatherRepository = new WeatherRepository();
+        weatherRepository = new WeatherRepository(view.getContext());
     }
 
     // =============================================================================

@@ -1,5 +1,6 @@
 package com.valmaraz.mvp.view.activity;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.v4.content.ContextCompat;
@@ -77,6 +78,11 @@ public class WeatherListActivity extends BaseActivity implements WeatherListView
     // =============================================================================
     // VIEW IMPLEMENTATION
     // =============================================================================
+
+    @Override
+    public Context getContext() {
+        return getApplicationContext();
+    }
 
     @Override
     public void showLoading() {
