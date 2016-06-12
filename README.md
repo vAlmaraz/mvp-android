@@ -5,6 +5,8 @@ This README will explain as a tutorial how to achieve my personal MVP implementa
 
 It is based on [Konstantin Mikheev](https://github.com/konmik/konmik.github.io/wiki/Introduction-to-Model-View-Presenter-on-Android) and presentation layer of Clean Architecture example by [Fernando Cejas](https://github.com/android10/Android-CleanArchitecture) examples. It also follows my own [code style guide](https://github.com/vAlmaraz/code-style).
 
+**NOTE**: If you want to compile and run this project, you need to get an api key from [OpenWeatherMap](http://openweathermap.org/api). Sign up and get your api key. Then, change it in [Environment class](app/src/main/java/com/valmaraz/mvp/Environment.java).
+
 
 ## First steps: avoiding massive Activities/Fragments
 
