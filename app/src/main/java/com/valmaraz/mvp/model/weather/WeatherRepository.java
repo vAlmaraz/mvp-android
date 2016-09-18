@@ -1,10 +1,11 @@
-package com.valmaraz.mvp.model.repository;
+package com.valmaraz.mvp.model.weather;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
 
 import com.valmaraz.mvp.Environment;
 import com.valmaraz.mvp.Log;
+import com.valmaraz.mvp.model.RepositoryListener;
 import com.valmaraz.mvp.model.entity.City;
 
 import java.util.List;
@@ -18,19 +19,19 @@ public class WeatherRepository {
     private static final String TAG = WeatherRepository.class.getName();
 
     private WeatherClient client;
-    private WeatherDict dict;
+    private WeatherCache cache;
 
     public WeatherRepository(Context context) {
         client = new WeatherClient();
-        dict = new WeatherDict(context);
+        cache = new WeatherCache(context);
     }
 
     public void getList(@NonNull final WeatherListListener callback) {
         Log.i(TAG, "Requesting list...");
-        if (dict.savedListIsValid()) {
+        if (cache.savedListIsValid()) {
             Log.i(TAG, "Saved list is still valid");
             // Return saved data
-            callback.onWeatherListReceived(dict.getList());
+            callback.onWeatherListReceived(cache.getList());
         } else {
             Log.i(TAG, "No saved list or obsolete. Requesting new data...");
             // Request data from client
@@ -46,7 +47,7 @@ public class WeatherRepository {
                 public void onWeatherListReceived(List<City> cities) {
                     Log.i(TAG, "Saving new list...");
                     // Save response for future requests
-                    dict.saveList(cities);
+                    cache.saveList(cities);
                     // Return response to callback
                     callback.onWeatherListReceived(cities);
                 }
@@ -63,10 +64,10 @@ public class WeatherRepository {
 
     public void getDetails(@NonNull City city, @NonNull final WeatherDetailsListener callback) {
         Log.i(TAG, "Requesting details for " + city.name + " (" + city.id + ")...");
-        if (dict.savedDetailsIsValid(city.id)) {
+        if (cache.savedDetailsIsValid(city.id)) {
             Log.i(TAG, "Details are still valid for " + city.name + " (" + city.id + ")");
             // Return saved data
-            callback.onWeatherDetailsReceived(dict.getDetails(city.id));
+            callback.onWeatherDetailsReceived(cache.getDetails(city.id));
         } else {
             Log.i(TAG, "No saved details or obsolete. Requesting new data for " + city.name + " (" + city.id + ")...");
             // Request data from client
@@ -75,7 +76,7 @@ public class WeatherRepository {
                 public void onWeatherDetailsReceived(City city) {
                     Log.i(TAG, "Saving new details for" + city.name + " (" + city.id + ")...");
                     // Save response for future requests
-                    dict.saveDetails(city);
+                    cache.saveDetails(city);
                     // Return response to callback
                     callback.onWeatherDetailsReceived(city);
                 }

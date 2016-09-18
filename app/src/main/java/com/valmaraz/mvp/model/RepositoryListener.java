@@ -1,4 +1,4 @@
-package com.valmaraz.mvp.model.repository;
+package com.valmaraz.mvp.model;
 
 /**
  * Created by Víctor Almaraz on 16/04/2016.
