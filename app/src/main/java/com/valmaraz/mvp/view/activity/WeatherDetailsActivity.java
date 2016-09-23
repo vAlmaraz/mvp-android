@@ -11,7 +11,7 @@ import android.widget.TextView;
 import com.google.gson.Gson;
 import com.valmaraz.mvp.R;
 import com.valmaraz.mvp.model.entity.City;
-import com.valmaraz.mvp.model.repository.WeatherRepository;
+import com.valmaraz.mvp.model.weather.WeatherRepository;
 import com.valmaraz.mvp.presenter.WeatherDetailsPresenter;
 import com.valmaraz.mvp.view.WeatherDetailsView;
 import com.valmaraz.mvp.view.component.ImageLoader;

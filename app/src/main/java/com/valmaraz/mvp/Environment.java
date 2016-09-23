@@ -6,7 +6,7 @@ package com.valmaraz.mvp;
  */
 public class Environment {
 
-    public static Type type = Type.DEVELOP;
+    public static long CACHE_MAX_LIFETIME_IN_MILLIS = 5 * 1000;
 
     // Default values (PRODUCTION)
     public static boolean showLog = false;
@@ -14,6 +14,8 @@ public class Environment {
     public static String apiUrl = "http://api.openweathermap.org";
     public static String apiBaseUrl = "http://api.openweathermap.org/data/2.5/";
     public static String apiKey = "dc6ac0462871834b4e77f8b3e5f98d63";
+
+    private static Type type = Type.DEVELOP;
 
     public static void configure() {
         switch (type) {

@@ -1,4 +1,4 @@
-package com.valmaraz.mvp.model.repository;
+package com.valmaraz.mvp.model.weather;
 
 import android.content.Context;
 import android.content.SharedPreferences;
