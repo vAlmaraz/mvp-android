@@ -30,7 +30,7 @@ public class CachedData {
         if (other.id != null && id == null || other.id == null && id != null || other.id != null && id != null && !other.id.equals(id)) {
             return false;
         }
-        return other.responseJson == responseJson && other.responseJson == responseJson;
+        return other.responseJson.equals(responseJson);
     }
 
     public void saveResponse(String responseJson) {

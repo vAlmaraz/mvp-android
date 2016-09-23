@@ -56,7 +56,7 @@ public abstract class BaseCache {
 
         List<CachedData> cachedDataList = getCachedDataList();
         for (CachedData cd : cachedDataList) {
-            if (searchCachedData.equals(cd)) {
+            if (searchCachedData.id.equals(cd.id)) {
                 foundCachedData = cd;
                 break;
             }
@@ -69,7 +69,7 @@ public abstract class BaseCache {
         boolean found = false;
         List<CachedData> cachedDataList = getCachedDataList();
         for (CachedData cd : cachedDataList) {
-            if (cachedData.equals(cd)) {
+            if (cachedData.id.equals(cd.id)) {
                 cd.saveResponse(cachedData.responseJson);
                 found = true;
                 break;
